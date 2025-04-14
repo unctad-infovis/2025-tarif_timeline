@@ -3,7 +3,7 @@
 #app-root-2025-tarif_timeline .app {
   font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  ul {
+  >ul {
     --col-gap: 2rem;
     --line-w: 0.25rem;
     --row-gap: 2rem;
@@ -14,7 +14,6 @@
     list-style: none;
     margin-inline: auto;
     width: min(60rem, 90%);
-    /* line */
     &:before {
       background: #aaa096;
       border-radius: calc(var(--line-w) / 2);
@@ -22,21 +21,23 @@
       grid-column: 1;
       grid-row: 1 / span 20;
     }
-    li {
+    >li {
       display: grid;
       grid-column: 2;
       grid-row: span 2;
       grid-template-rows: min-content min-content min-content;
       margin-inline: var(--inlineP);
       .date {
+        align-items: center;
         background-color: var(--accent-color);
         color: white;
         display: grid;
-        font-size: 1.25rem;
+        font-size: 22px;
         font-weight: 700;
-        height: 60px;
+        height: 40px;
+        justify-content: left;
         margin-inline: calc(var(--inlineP) * -1);
-        place-content: center;
+        padding-left: 25px;
         position: relative;
         text-align: center;
         &:before {
@@ -46,10 +47,10 @@
           content: "";
           height: 36px;
           position: absolute;
-          right: 0;
-          top: 13px;
+          right: -1px;
+          top: 2px;
           aspect-ratio: 1;
-          width: 25px;
+          width: 26px;
         }
         &:after {
           aspect-ratio: 1;
@@ -74,10 +75,10 @@
         overflow: hidden;
         padding-block-start: 1.5rem;
         h3 {
+          font-size: 22px;
           font-weight: 700;
           line-height: 22px;
           margin: 0 0 20px 0;
-          font-size: 22px;
         }
         &:before {
           bottom: calc(100% + 0.125rem);
@@ -85,17 +86,22 @@
       }
       .descr {
         padding-block-end: 1.5rem;
-        p {
+        ul {
           font-size: 16px;
           font-weight: 400;
           line-height: 22px;
           margin: 0 0 20px 0;
-          a {
-            color: #000;
-            font-weight: 400;
-            text-decoration: underline;
-            &:hover {
-              text-decoration: none;
+          padding: 0 0 0 28px;
+          li {
+            list-style-type: disc;
+            padding: 0; 
+            a {
+              color: #000;
+              font-weight: 400;
+              text-decoration: underline;
+              &:hover {
+                text-decoration: none;
+              }
             }
           }
         }
@@ -103,26 +109,27 @@
     }
   }
 
-  
-
   @media (min-width: 40rem) {
-    ul {
+    >ul {
       grid-template-columns: 1fr var(--line-w) 1fr;
       &:before {
         grid-column: 2;
       }
-      li {
+      >li {
         &:nth-child(odd) {
           grid-column: 1;
           .date {
             border-radius: 0 calc(var(--dateH) / 2) calc(var(--dateH) / 2) 0;
+            justify-content: right;
+            padding-left: 0;
+            padding-right: 25px;
             &:before {
               clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-              left: 0;
+              left: -1px;
             }
             &:after {
-              transform: translate(-50%, -50%);
               left: calc(100% + var(--col-gap) + var(--line-w) / 2);
+              transform: translate(-50%, -50%);
             }
           }
         }
