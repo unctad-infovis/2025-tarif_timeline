@@ -2,7 +2,7 @@
 
 #app-root-2025-tarif_timeline .app {
   font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+  margin: 40px auto;
   >ul {
     --col-gap: 2rem;
     --line-w: 0.25rem;
@@ -55,8 +55,9 @@
         &:after {
           aspect-ratio: 1;
           background: #fff;
-          border: 6px solid var(--accent-color);
           border-radius: 50%;
+          border: 6px solid var(--accent-color);
+          box-sizing: content-box;
           content: "";
           position: absolute;
           right: calc(100% + var(--col-gap) + var(--line-w) / 2);
@@ -78,7 +79,7 @@
           font-size: 22px;
           font-weight: 700;
           line-height: 22px;
-          margin: 0 0 20px 0;
+          margin: 0 0 10px 0;
         }
         &:before {
           bottom: calc(100% + 0.125rem);
@@ -94,6 +95,7 @@
           padding: 0 0 0 28px;
           li {
             list-style-type: disc;
+            margin: 0 0 5px 0;
             padding: 0; 
             a {
               color: #000;
